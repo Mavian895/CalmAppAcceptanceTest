@@ -7,7 +7,13 @@ regresar rápidamente a la pantalla principal. (RNF1 - US04)
 Scenario: Acceder a una sección desde el menú
     Given que el usuario está en la pantalla principal
     When selecciona una opción del menú
+        |opciones|
+        |Alertas|
+        |Mascota|
+        |Configuración|
     Then el sistema lo dirige a la sección correspondiente
+        |pantallaActual|
+        |Mascota|
 
 Scenario: Regresar al inicio
     Given que el usuario se encuentra en cualquier sección
