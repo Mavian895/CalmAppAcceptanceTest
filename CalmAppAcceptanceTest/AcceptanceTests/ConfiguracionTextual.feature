@@ -24,6 +24,5 @@ Scenario: Error al guardar configuración
         |Verdana|#000000|
     When ocurre un error al guardar
     Then la aplicación mantiene la configuración anterior
-        Example:
         |mensaje|
         |Los cambios no fueron guardados|
