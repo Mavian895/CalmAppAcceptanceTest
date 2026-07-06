@@ -26,6 +26,12 @@ Scenario: Error al guardar configuración
     Then la aplicación mantiene la configuración anterior
         |mensaje|
         |Los cambios no fueron guardados|
+
+Scenario: Restablecer la configuración predeterminada
+    Given que el usuario modificó la configuración textual
+    When selecciona la opción "Restablecer"
+    Then el sistema recupera la configuración predeterminada
+    And actualiza la apariencia de los textos
         
 Scenario Outline: Aplicar diferentes tamaños de fuente
     Given que el usuario selecciona el tamaño "<Tamaño>"
