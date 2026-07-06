@@ -22,3 +22,14 @@ Scenario: No otorgar experiencia por sesión incompleta
     Then no se otorga experiencia
         |experienciaGanada|nivel|
         |0|1|
+
+Scenario Outline: Asignar experiencia según la actividad
+    Given que el usuario completa la actividad "<Actividad>"
+    When la sesión finaliza correctamente
+    Then la mascota recibe "<EXP>" puntos de experiencia
+
+Examples:
+    | Actividad      | EXP |
+    | Yoga           | 20  |
+    | Respiración    | 15  |
+    | Estiramiento   | 10  |
