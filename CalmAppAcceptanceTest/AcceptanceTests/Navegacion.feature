@@ -19,3 +19,14 @@ Scenario: Regresar al inicio
     Given que el usuario se encuentra en cualquier sección
     When presiona el botón de inicio
     Then el sistema vuelve a la pantalla principal
+
+Scenario Outline: Navegar entre diferentes secciones
+    Given que el usuario está en la pantalla principal
+    When selecciona la opción "<Sección>"
+    Then el sistema muestra la pantalla "<Sección>"
+
+Examples:
+    | Sección       |
+    | Progreso      |
+    | Configuración |
+    | Reportes      |
