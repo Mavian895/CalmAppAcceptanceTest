@@ -24,6 +24,12 @@ Scenario: Ignorar recomendaciones
     Then la mascota no insiste hasta un nuevo reporte
         |accion|prompt|
         |no insistir|La mascota virtual no insistirá en la recomendación hasta otro analisis critico en el reporte|
+
+Scenario: Mostrar recomendaciones según el nivel de estrés
+    Given que el usuario registra un nivel alto de estrés
+    When la mascota analiza el registro emocional
+    Then el sistema muestra una recomendación personalizada
+    And ofrece un acceso directo al ejercicio sugerido
         
 Scenario Outline: Recomendar ejercicios según la emoción
     Given que el usuario registra la emoción "<Emoción>"
