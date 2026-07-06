@@ -25,3 +25,14 @@ Scenario: Cambiar colores desde configuración
     Then la interfaz actualiza su apariencia
         |tipoDeConfiguracion|ajusteActual|
         |temaActual|temaRojizo|
+
+Scenario Outline: Cambiar entre modos de visualización
+    Given que el usuario selecciona el modo "<Modo>"
+    When guarda la configuración
+    Then la aplicación aplica el modo "<Modo>"
+
+Examples:
+    | Modo |
+    | Claro |
+    | Oscuro |
+    | Oscuro cálido |
