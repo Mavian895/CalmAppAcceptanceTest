@@ -26,6 +26,12 @@ Scenario: Cambiar colores desde configuración
         |tipoDeConfiguracion|ajusteActual|
         |temaActual|temaRojizo|
 
+Scenario: Mantener el modo seleccionado al reiniciar la aplicación
+    Given que el usuario activó el modo oscuro
+    When vuelve a ingresar a la aplicación
+    Then el sistema conserva la configuración
+    And muestra la interfaz en modo oscuro
+
 Scenario Outline: Cambiar entre modos de visualización
     Given que el usuario selecciona el modo "<Modo>"
     When guarda la configuración
