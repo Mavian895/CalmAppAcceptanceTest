@@ -20,6 +20,12 @@ Scenario: Regresar al inicio
     When presiona el botón de inicio
     Then el sistema vuelve a la pantalla principal
 
+Scenario: Acceder al perfil desde el menú principal
+    Given que el usuario está en la pantalla principal
+    When selecciona la opción "Perfil"
+    Then el sistema muestra la información del usuario
+    And mantiene disponible el botón de inicio
+
 Scenario Outline: Navegar entre diferentes secciones
     Given que el usuario está en la pantalla principal
     When selecciona la opción "<Sección>"
