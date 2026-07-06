@@ -18,6 +18,12 @@ Scenario: Intentar acceder a una función en línea
         |mensaje|
         |No se puede cargar esta funcion porque no hay conexion a internet|
 
+Scenario: Sincronizar registros al recuperar la conexión
+    Given que existen registros almacenados localmente
+    When el dispositivo recupera la conexión a internet
+    Then el sistema sincroniza la información automáticamente
+    And confirma que los datos fueron enviados
+
 Scenario Outline: Registrar actividades sin conexión
     Given que el usuario no tiene acceso a internet
     When registra la actividad "<Actividad>"
