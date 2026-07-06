@@ -23,6 +23,12 @@ Scenario: No otorgar experiencia por sesión incompleta
         |experienciaGanada|nivel|
         |0|1|
 
+Scenario: Subir de nivel al alcanzar la experiencia necesaria
+    Given que la mascota está próxima a subir de nivel
+    When recibe la experiencia restante
+    Then la mascota aumenta de nivel
+    And el sistema actualiza la barra de experiencia
+
 Scenario Outline: Asignar experiencia según la actividad
     Given que el usuario completa la actividad "<Actividad>"
     When la sesión finaliza correctamente
