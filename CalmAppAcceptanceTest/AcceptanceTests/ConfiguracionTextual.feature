@@ -26,3 +26,14 @@ Scenario: Error al guardar configuración
     Then la aplicación mantiene la configuración anterior
         |mensaje|
         |Los cambios no fueron guardados|
+        
+Scenario Outline: Aplicar diferentes tamaños de fuente
+    Given que el usuario selecciona el tamaño "<Tamaño>"
+    When guarda la configuración
+    Then la aplicación aplica el tamaño "<Tamaño>"
+
+Examples:
+    | Tamaño |
+    | Pequeño |
+    | Mediano |
+    | Grande |
