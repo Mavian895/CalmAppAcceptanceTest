@@ -17,3 +17,14 @@ Scenario: Intentar acceder a una función en línea
     Then la aplicación muestra un mensaje de advertencia
         |mensaje|
         |No se puede cargar esta funcion porque no hay conexion a internet|
+
+Scenario Outline: Registrar actividades sin conexión
+    Given que el usuario no tiene acceso a internet
+    When registra la actividad "<Actividad>"
+    Then la información queda almacenada localmente
+
+Examples:
+    | Actividad          |
+    | Registro emocional |
+    | Actividad diaria   |
+    | Sesión de bienestar|
