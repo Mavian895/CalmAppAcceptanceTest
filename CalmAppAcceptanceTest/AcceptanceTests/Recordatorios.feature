@@ -18,3 +18,14 @@ Scenario: No enviar recordatorios desactivados
 	Given que el usuario desactivó los recordatorios
 	When llega una hora previamente programada
 	Then el sistema no envía ninguna notificación
+
+Scenario Outline: Configurar diferentes horarios
+    Given que el usuario selecciona la hora "<Hora>"
+    When guarda la configuración
+    Then el sistema programa el recordatorio para "<Hora>"
+
+Examples:
+    | Hora |
+    | 08:00 |
+    | 13:00 |
+    | 20:00 |
