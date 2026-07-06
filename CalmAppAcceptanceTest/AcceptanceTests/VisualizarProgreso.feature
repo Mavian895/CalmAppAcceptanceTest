@@ -18,3 +18,20 @@ Scenario: Filtrar progreso por período
 	Then el sistema muestra únicamente los datos correspondientes a dicho período
 		|periodo|sesionesCompletadas|actividadesCompletadas|tareasCompletadas|
 		|21.6.2026-28.6.2026|4|8|5|
+
+Scenario: Mostrar mensaje cuando no existen registros
+    Given que el universitario no tiene registros almacenados
+    When accede a la sección de progreso
+    Then el sistema informa que no existen datos disponibles
+    And invita al usuario a registrar una actividad
+
+Scenario Outline: Consultar progreso por diferentes períodos
+    Given que existen registros emocionales
+    When el usuario selecciona el período "<Período>"
+    Then el sistema muestra la información correspondiente
+
+Examples:
+    | Período |
+    | Semana  |
+    | Mes     |
+    | Año     |
